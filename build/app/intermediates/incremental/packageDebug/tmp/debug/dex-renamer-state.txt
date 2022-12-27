@@ -1,0 +1,4 @@
+#Tue Dec 27 09:20:04 IST 2022
+base.0=/Users/ronmegini/Projects/FlutterDev/flutter_projects/flutter-smartswap/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
