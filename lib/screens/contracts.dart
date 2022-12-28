@@ -15,6 +15,7 @@ class ContractsTable extends StatelessWidget {
     {"Name": "BBBBBB", "Description": "2"},
     {"Name": "CCCCCC", "Description": "3"}
   ];
+
   @override
   Widget build(BuildContext context) {
     return DataTable(

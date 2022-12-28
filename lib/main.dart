@@ -1,4 +1,4 @@
-import 'package:first_app/screens/contracts.dart';
+import 'package:first_app/screens/contracts-new.dart';
 import 'package:first_app/screens/create.dart';
 import 'package:first_app/screens/join.dart';
 import 'package:flutter/material.dart';
