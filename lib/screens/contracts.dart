@@ -10,29 +10,43 @@ class ContractsScreen extends StatelessWidget {
 
 class ContractsTable extends StatelessWidget {
   ContractsTable({super.key});
-  final List<Map<String, String>> listOfColumns = [
-    {"Name": "AAAAAA", "Description": "1"},
-    {"Name": "BBBBBB", "Description": "2"},
-    {"Name": "CCCCCC", "Description": "3"}
-  ];
+
+  final List<String> items = ['שכר דירה', 'תשלום למנקה', 'תשלום למעצב גרפי'];
 
   @override
   Widget build(BuildContext context) {
-    return DataTable(
-      columns: const [
-        DataColumn(label: Text('Name')),
-        DataColumn(label: Text('Description'))
+    return Table(
+      children: [
+        for (var item in items)
+          TableRow(
+            children: [
+              ElevatedButton(
+                child: Text(item),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsScreen(),
+                      ));
+                },
+              ),
+            ],
+          ),
       ],
-      rows: listOfColumns
-          .map(
-            ((element) => DataRow(
-                  cells: <DataCell>[
-                    DataCell(Text(element["Name"]!)),
-                    DataCell(Text(element["Description"]!)),
-                  ],
-                )),
-          )
-          .toList(),
+    );
+  }
+}
+
+class DetailsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Details'),
+      ),
+      body: const Center(
+        child: Text('This is the details screen'),
+      ),
     );
   }
 }
