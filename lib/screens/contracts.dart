@@ -34,23 +34,24 @@ class ContractsTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Table(
-      children: [
-        for (var contract in contracts)
-          TableRow(
-            children: [
-              ElevatedButton(
-                child: Text(contract['name']),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DetailsScreen(),
-                          settings: RouteSettings(arguments: contract)));
-                },
-              ),
-            ],
-          ),
+    return Scaffold(
+      body: Table(
+        children: [
+          for (var contract in contracts)
+            TableRow(
+              children: [
+                ElevatedButton(
+                  child: Text(contract['name']),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailsScreen(),
+                            settings: RouteSettings(arguments: contract)));
+                  },
+                ),
+              ],
+            ),
       ],
     );
   }
@@ -82,8 +83,9 @@ class DetailsScreen extends StatelessWidget {
     final Map argument = ModalRoute.of(context)!.settings.arguments as Map;
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Details'),
-        ),
+            backgroundColor: Color.fromARGB(255, 125, 181, 202),
+            foregroundColor: Color.fromARGB(255, 19, 8, 69),
+            title: const Text('Details')),
         body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: ListView(children: [
