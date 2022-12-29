@@ -11,23 +11,27 @@ class ContractsScreen extends StatelessWidget {
 class ContractsTable extends StatelessWidget {
   ContractsTable({super.key});
 
-  final List<String> items = ['שכר דירה', 'תשלום למנקה', 'תשלום למעצב גרפי'];
+  List<Map<String, dynamic>> contracts = [
+    {'name': 'a', 'desc': 'a'},
+    {'name': 'b', 'desc': 'b'},
+    {'name': 'c', 'desc': 'c'}
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Table(
       children: [
-        for (var item in items)
+        for (var contract in contracts)
           TableRow(
             children: [
               ElevatedButton(
-                child: Text(item),
+                child: Text(contract['name']),
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailsScreen(),
-                      ));
+                          builder: (context) => DetailsScreen(),
+                          settings: RouteSettings(arguments: contract)));
                 },
               ),
             ],
@@ -38,14 +42,16 @@ class ContractsTable extends StatelessWidget {
 }
 
 class DetailsScreen extends StatelessWidget {
+  DetailsScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final Map argument = ModalRoute.of(context)!.settings.arguments as Map;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Details'),
+        title: Text(argument['name']),
       ),
-      body: const Center(
-        child: Text('This is the details screen'),
+      body: Center(
+        child: Text(argument['desc']),
       ),
     );
   }
