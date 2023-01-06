@@ -35,25 +35,25 @@ class ContractsTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Table(
-        children: [
-          for (var contract in contracts)
-            TableRow(
-              children: [
-                ElevatedButton(
-                  child: Text(contract['name']),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailsScreen(),
-                            settings: RouteSettings(arguments: contract)));
-                  },
-                ),
-              ],
-            ),
+        body: Table(
+      children: [
+        for (var contract in contracts)
+          TableRow(
+            children: [
+              ElevatedButton(
+                child: Text(contract['name']),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailsScreen(),
+                          settings: RouteSettings(arguments: contract)));
+                },
+              ),
+            ],
+          ),
       ],
-    );
+    ));
   }
 }
 
